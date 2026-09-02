@@ -222,7 +222,7 @@ const home = () => `
     </div>
     <div class="panel" id="newsletter">
       <h3>Hear from us occasionally</h3>
-      <p>Seasonal drinks, holiday hours, the odd special. About once a month, never more.</p>
+      <p>Seasonal drinks, holiday hours, the odd special.</p>
       <form action="${site.formEndpoint}" method="POST">
         <input type="hidden" name="_subject" value="Newsletter signup from legalgroundscafe.com">
         <input type="hidden" name="_next" value="${site.url}/thanks/">
