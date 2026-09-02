@@ -99,8 +99,8 @@ function layout({ path, title, desc, body, ld, current }) {
 <meta property="og:url" content="${site.url}${path}">
 <meta property="og:image" content="${site.url}/assets/img/room.jpg">
 <meta name="theme-color" content="#5d7b62">
-<link rel="icon" href="${u("/assets/img/mark.png")}" type="image/png">
-<link rel="apple-touch-icon" href="${u("/assets/img/mark.png")}">
+<link rel="icon" href="${u("/assets/img/figure.png")}" type="image/png">
+<link rel="apple-touch-icon" href="${u("/assets/img/figure.png")}">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jost:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
@@ -113,7 +113,7 @@ ${ld ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
 <div class="banner" id="closure-banner" hidden></div>
 <header class="site-header">
   <div class="wrap">
-    <a class="brand" href="${u("/")}" aria-label="${esc(site.name)} home"><img src="${u("/assets/img/mark.png")}" alt="" width="44" height="40"><span>Legal Grounds<br>Café</span></a>
+    <a class="brand" href="${u("/")}" aria-label="${esc(site.name)} home"><img src="${u("/assets/img/figure.png")}" alt="" width="640" height="900"><span>Legal Grounds<br>Café</span></a>
     <nav class="nav" aria-label="Main">
       ${NAV.map(([p, l]) => `<a href="${u(p)}"${current === p ? ' aria-current="page"' : ""}>${l}</a>`).join("\n      ")}
     </nav>
@@ -160,16 +160,17 @@ const ph = (label, ratio = "r43") => `<div class="ph ${ratio}" role="img" aria-l
 const home = () => `
 <section class="hero">
   <div class="wrap">
-    <div class="hero-img"><img src="${u("/assets/img/room.jpg")}" alt="The café's main room: marble counter, black bistro chairs, framed prints on sage-green walls under a pressed-copper ceiling." width="1600" height="1200" fetchpriority="high"></div>
+    <div class="hero-img"><img src="${u("/assets/img/hero-latte.jpg")}" alt="A cappuccino with latte art held up at the counter, with the café's tables and a wall of paintings behind." width="1016" height="1225" fetchpriority="high"></div>
     <div class="hero-text">
       <h1>Coffee, breakfast and lunch in Elsmere.</h1>
       <p class="lede">A small European-style café on Kirkwood Highway, minutes from downtown Wilmington. Everything made to order, seven days a week.</p>
       <ul class="facts">
         <li><span class="label">Hours</span><span>${esc(hoursLine)}</span></li>
-        <li><span class="label">Where</span><span><a href="${site.directionsUrl}" rel="noopener">${esc(addr1)}, ${esc(site.address.city)}</a> · free parking lot out front</span></li>
+        <li><span class="label">Where</span><span><a href="${site.directionsUrl}" rel="noopener">${esc(addr1)}, ${esc(site.address.city)}</a> · free parking in the back</span></li>
         <li><span class="label">Call</span><span><a href="tel:${site.phoneTel}">${esc(site.phone)}</a></span></li>
       </ul>
       <div class="btn-row"><a class="btn primary" href="${u("/menu/")}">See the menu</a><a class="btn" href="${u("/private-room/")}">Book the private room</a></div>
+      <p class="presented"><img src="${u("/assets/img/dplogo.png")}" alt="" width="217" height="255"><span>Presented by the Law Offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>, upstairs in the same building.</span></p>
     </div>
   </div>
 </section>
@@ -180,8 +181,8 @@ const home = () => `
   <div class="wrap">
     <div class="section-head"><span class="label">What people come back for</span><h2>Three things to order first.</h2></div>
     <div class="three">
-      <div class="card">${ph("Salmon avocado toast")}<h3>Salmon avocado toast</h3><p>Smoked salmon, avocado, capers, red onion and cream cheese on nine-grain. The one reviewers keep naming.</p><p class="price">$13</p></div>
-      <div class="card">${ph("A specialty latte")}<h3>The specialty latte</h3><p>A rotating house latte. The s'mores latte has a following. Ask what's on this week.</p><p class="price">from $4.75</p></div>
+      <div class="card"><img src="${u("/assets/img/breakfast-sandwich.jpg")}" alt="A bacon, egg and cheese on an everything bagel, cut in half, with sliced strawberries." width="1000" height="1000" loading="lazy"><h3>Breakfast sandwich</h3><p>Egg and cheese on a bagel, croissant or toast, with bacon, sausage or ham if you like. Made when you order it.</p><p class="price">from $6</p></div>
+      <div class="card"><img src="${u("/assets/img/specialty-latte.jpg")}" alt="A pumpkin spice latte with a fern poured in the foam, in front of a tray of small pumpkins." width="1000" height="1000" loading="lazy"><h3>The specialty latte</h3><p>A rotating house latte. The s'mores latte has a following. Ask what's on this week.</p><p class="price">from $4.75</p></div>
       <div class="card">${ph("Quiche of the day")}<h3>Quiche of the day</h3><p>Baked in-house, different every day. Ask what's in the case, and get there before lunch.</p><p class="price">$8.50</p></div>
     </div>
   </div>
@@ -191,12 +192,11 @@ const home = () => `
   <div class="wrap">
     <div class="section-head"><span class="label">Good to know</span><h2>The practical questions, answered.</h2></div>
     <ul class="know">
-      <li><b>Parking</b><span>Our own lot, right out front on Kirkwood Highway.</span></li>
+      <li><b>Parking</b><span>Free, in our lot behind the building.</span></li>
       <li><b>Wi-Fi</b><span>Free. Laptops are welcome.</span></li>
       <li><b>Outdoor seating</b><span>A patio with heaters, so it stays useful into the cooler months.</span></li>
-      <li><b>A free room for meetings</b><span>A quiet conference room for up to ${site.conferenceRoomMinutes} minutes, no charge. Email or call ahead to reserve it.</span></li>
+      <li><b>The private room</b><span>Free for a meeting of up to ${site.conferenceRoomMinutes} minutes, or book it for a group of ${site.privateRoom.min} to ${site.privateRoom.max} at no fee. <a href="${u("/private-room/")}">Details and booking</a>.</span></li>
       <li><b>Kids</b><span>Welcome. We don't have high chairs yet.</span></li>
-      <li><b>Groups</b><span>A private room for ${site.privateRoom.min} to ${site.privateRoom.max}, no reservation fee. <a href="${u("/private-room/")}">Details and booking</a>.</span></li>
     </ul>
   </div>
 </section>
@@ -207,8 +207,19 @@ const home = () => `
     <div>
       <span class="label">The private room</span>
       <h2 style="margin:8px 0 12px">Your own room, no fee.</h2>
-      <p>A long table for ${site.privateRoom.min} to ${site.privateRoom.max}, a screen on the wall, and a door that closes. Book clubs, firm lunches, birthdays, depositions that need coffee. Order from the regular menu or tell us what your group needs.</p>
+      <p>A long table for ${site.privateRoom.min} to ${site.privateRoom.max}, a screen on the wall, and a door that closes. Book clubs, firm lunches, birthdays, depositions that need coffee. Smaller meeting? Use it free for up to ${site.conferenceRoomMinutes} minutes.</p>
       <a class="btn" href="${u("/private-room/")}">Request a date</a>
+    </div>
+  </div>
+</section>
+
+<section class="section affiliates">
+  <div class="wrap">
+    <div class="section-head"><span class="label">Our family of businesses</span><h2>The people behind the café.</h2></div>
+    <div class="three">
+      <a class="aff" href="${site.lawFirm.url}" rel="noopener"><img src="${u("/assets/img/dplaw.jpg")}" alt="The four named partners of Doroshow, Pasquale, Krawitz & Bhaya in front of the firm's sign." width="940" height="1000" loading="lazy"><span class="label">The law firm</span><h3>${esc(site.lawFirm.name)}</h3><p>The Delaware personal injury firm that opened Legal Grounds, representing injured people since 1978. Upstairs in this building, and at offices across the state.</p><span class="more">dplaw.com</span></a>
+      <a class="aff" href="https://othde.com" rel="noopener"><img src="${u("/assets/img/oth.jpg")}" alt="The stone façade of Old Town Hall in Wilmington." width="1400" height="612" loading="lazy"><span class="label">Commercial real estate</span><h3>Old Town Hall Associates</h3><p>The family's commercial real estate company, with office and retail buildings across Delaware, including this one.</p><span class="more">othde.com</span></a>
+      <a class="aff" href="${site.sister.url}" rel="noopener"><img src="${u("/assets/img/tinyweekends.png")}" alt="" width="512" height="512" loading="lazy" class="icon"><span class="label">For families</span><h3>${site.sister.name}</h3><p>A free weekend guide for Delaware families, written by the family that runs the café. What's on this weekend, by age, with the honest details.</p><span class="more">tinyweekends.co</span></a>
     </div>
   </div>
 </section>
@@ -216,6 +227,7 @@ const home = () => `
 <section class="section">
   <div class="wrap pair">
     <div class="panel">
+      <img src="${u("/assets/img/giftcards.jpg")}" alt="Legal Grounds gift cards fanned around a latte with a heart poured in the foam." width="1000" height="1256" loading="lazy" class="panel-img">
       <h3>Gift cards</h3>
       <p>Sent by email in about a minute, for any amount. Physical cards at the register.</p>
       <a class="btn" href="${site.giftCardUrl}" rel="noopener">Buy a gift card</a>
@@ -257,6 +269,7 @@ function menuPage() {
   <ul class="menu-jump">${menu.sections.map((s) => `<li><a href="#${s.id}">${esc(s.title)}</a></li>`).join("")}</ul>
 </div>
 <div class="wrap narrow page-body">
+  <img src="${u("/assets/img/latte-togo.jpg")}" alt="A latte in a compostable paper cup on the marble counter, next to a green glass bottle of eucalyptus." width="1000" height="1000" loading="lazy" style="border-radius:6px;max-width:360px;margin:0 0 30px">
   ${seasonal}
   ${sec}
   <p class="notice" style="margin-top:30px">We are not a gluten-free or nut-free kitchen. Tell us about an allergy and we'll tell you honestly what we can do.</p>
@@ -275,12 +288,12 @@ const privateRoom = () => `
   <div class="spec">
     <div><b>${site.privateRoom.min}–${site.privateRoom.max}</b><span>seats at one long table</span></div>
     <div><b>$0</b><span>reservation fee</span></div>
-    <div><b>Free lot</b><span>parking right outside</span></div>
+    <div><b>Free lot</b><span>parking behind the building</span></div>
   </div>
   <div class="prose">
     <h2>How it works</h2>
     <p>Send the form below or call <a href="tel:${site.phoneTel}">${esc(site.phone)}</a> with a date, a time, and a headcount. We confirm by email, usually within a business day. Order from the regular menu when you arrive, or tell us ahead of time what your group needs and we'll have it ready. A screen on the wall takes a laptop for presentations.</p>
-    <p>Need a quiet spot for a smaller meeting? There's also a free conference room for up to ${site.conferenceRoomMinutes} minutes. Same form, or just call.</p>
+    <p>Need it for a smaller meeting? The same room is free for up to ${site.conferenceRoomMinutes} minutes. Same form, or just call.</p>
     <h2>Request a date</h2>
   </div>
   <form action="${site.formEndpoint}" method="POST">
@@ -293,10 +306,10 @@ const privateRoom = () => `
       <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
-      <div class="field"><label for="f-room">Which room</label><select id="f-room" name="room"><option>Private dining room (6–16)</option><option>Conference room (up to ${site.conferenceRoomMinutes} min)</option></select></div>
       <div class="field"><label for="f-date">Date</label><input id="f-date" type="date" name="date" required></div>
       <div class="field"><label for="f-time">Time</label><input id="f-time" type="time" name="time" required></div>
       <div class="field"><label for="f-count">How many people</label><input id="f-count" type="number" name="headcount" min="1" max="30" required></div>
+      <div class="field"><label for="f-len">How long</label><select id="f-len" name="length"><option>Up to 90 minutes</option><option>Two to three hours</option><option>Longer, let's talk</option></select></div>
       <div class="field"><label for="f-occ">Occasion</label><input id="f-occ" name="occasion" placeholder="Book club, lunch meeting, birthday…"></div>
     </div>
     <div class="field"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" rows="4" placeholder="Food ahead of time, dietary needs, a laptop for the screen…"></textarea></div>
@@ -309,23 +322,23 @@ const visit = () => `
 <div class="wrap narrow page-head">
   <span class="label">Visit</span>
   <h1>On Kirkwood Highway in Elsmere.</h1>
-  <p>${esc(addr1)}, ${esc(addr2)}. Same building as the law offices, with our own parking lot out front.</p>
+  <p>${esc(addr1)}, ${esc(addr2)}. Ground floor of the law offices' building, with free parking in the lot behind it.</p>
   <div class="btn-row"><a class="btn primary" href="${site.directionsUrl}" rel="noopener">Get directions</a><a class="btn" href="tel:${site.phoneTel}">Call ${esc(site.phone)}</a></div>
 </div>
 <div class="wrap narrow page-body prose">
-  ${ph("The front of the café from Kirkwood Highway", "r32")}
+  <img src="${u("/assets/img/exterior.jpg")}" alt="The café's front on Kirkwood Highway: black awning lettered Legal Grounds Café, blue double doors, planters full of flowers, and a mosaic bistro table." width="1010" height="1300" loading="lazy" style="border-radius:6px;max-width:520px">
   <h2>Hours</h2>
   <ul class="hours" style="list-style:none;padding:0;max-width:260px">${hoursList}</ul>
   <p>We close the kitchen and the doors at 3. Holiday hours show up at the top of every page the day before.</p>
   <h2>Getting here</h2>
-  <p>We're on Kirkwood Highway (Route 2) in Elsmere, about ten minutes west of downtown Wilmington and a few minutes from I-95. Pull into the lot in front of the building. Street parking on the side streets is easy too.</p>
+  <p>We're on Kirkwood Highway (Route 2) in Elsmere, about ten minutes west of downtown Wilmington and a few minutes from I-95. Park free in the lot behind the building and walk around to the blue doors under the awning.</p>
   <h2>Sitting down</h2>
   <ul>
     <li><b>Inside:</b> a European-style room with a marble counter, small tables, and a copper ceiling. Laptops welcome, and the Wi-Fi is free.</li>
-    <li><b>Outside:</b> a patio with heaters for the shoulder seasons.</li>
-    <li><b>A free conference room:</b> up to ${site.conferenceRoomMinutes} minutes, no charge. Email or call ahead.</li>
-    <li><b>The private room:</b> ${site.privateRoom.min} to ${site.privateRoom.max} people, no fee. <a href="${u("/private-room/")}">Book it here</a>.</li>
+    <li><b>Outside:</b> a patio with heaters for the shoulder seasons, and flowers all summer.</li>
+    <li><b>The private room:</b> free for a meeting of up to ${site.conferenceRoomMinutes} minutes, or booked for ${site.privateRoom.min} to ${site.privateRoom.max} people at no fee. <a href="${u("/private-room/")}">Book it here</a>.</li>
   </ul>
+  <img src="${u("/assets/img/patio.jpg")}" alt="The patio under a canopy: a mosaic table, planters of red canna lilies and sweet-potato vine, and the parking lot beyond." width="1010" height="1300" loading="lazy" style="border-radius:6px;max-width:520px;margin:10px 0 26px">
   <h2>Bringing kids</h2>
   <p>Kids are welcome, and a PB&amp;J on sourdough is on the menu for them. We don't have high chairs yet. Weekend mornings are the calmest time to come with little ones.</p>
   <div class="tw">
@@ -342,9 +355,10 @@ const story = () => `
   <p>Hence the name, and the lady with the scales on our sign.</p>
 </div>
 <div class="wrap narrow page-body prose">
-  <p>Legal Grounds opened in 2017 on the ground floor of 1208 Kirkwood Highway, the building that houses the law offices of ${esc(site.lawFirm.name)}. The firm opened it for two groups of people: its own employees, who wanted somewhere good to get coffee and lunch without leaving the building, and the neighborhood of Elsmere, which didn't have a café of its own.</p>
+  <p>Legal Grounds opened in 2017 on the ground floor of 1208 Kirkwood Highway, the building that houses the law offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>. The firm opened it for two groups of people: its own employees, who wanted somewhere good to get coffee and lunch without leaving the building, and the neighborhood of Elsmere, which didn't have a café of its own.</p>
   <p>The room was built to feel like the cafés the family loves in Europe. A pressed-copper ceiling, a marble counter, black bistro chairs, framed prints on sage-green walls. It photographs well, but it's better in person at seven in the morning with the light coming in.</p>
-  ${ph("The counter and pastry case in morning light", "r32")}
+  <img src="${u("/assets/img/artwall.jpg")}" alt="A wall of abstract paintings by a local artist above a butcher-block table with a vase of flowers, under the copper ceiling." width="1010" height="1346" loading="lazy" style="border-radius:6px;max-width:520px;margin:6px 0 26px">
+  <img src="${u("/assets/img/rivalbros.jpg")}" alt="Proudly serving Rival Bros Coffee Roasters, established 2011." width="400" height="500" loading="lazy" style="float:right;max-width:180px;margin:0 0 12px 22px;border-radius:4px">
   <p>The coffee comes from <a href="${site.roaster.url}" rel="noopener">${esc(site.roaster.name)}</a>, a small roaster in Philadelphia. The quiche is baked here, and it changes every day. The sandwiches are made when you order them, which is why we ask for a little patience at the lunch rush.</p>
   <p>In 2019 USA Today named us the best coffee shop in Delaware, and the people who come in every morning have kept us on the lists since. Most of them we know by name and by order. We'd like to know yours.</p>
   <p class="label" style="margin-top:36px">Also from the family</p>
