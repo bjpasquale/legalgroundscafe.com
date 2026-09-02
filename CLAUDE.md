@@ -20,8 +20,8 @@ Squarespace site in September 2026. Ben manages it; the café is presented by th
 - **Newsletter signup** links to Square's free hosted sign-up page (`site.json → signupUrl`); those emails land in Square's Collected Emails as the café's own data and export normally.
 - **Forms** (private room request) post to FormSubmit at `site.json → formEndpoint`
   (info@legalgroundscafe.com). FormSubmit needs a one-time activation click from that inbox after
-  the first submission. No account, no server. Newsletter signups arrive as email until a Brevo
-  form replaces the field.
+  the first submission. No account, no server.
+
 - **Photos:** `assets/img/`. Placeholders (`.ph` blocks in `build.mjs`) mark where real photos go;
   swap each for an `<img>` when Ben supplies them. Keep images ≤ 1800px, JPEG ~82.
 - **Money never changes hands on this site.** Gift cards and any ordering link out to Square.
