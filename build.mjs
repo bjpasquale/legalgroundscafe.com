@@ -196,7 +196,7 @@ const home = () => `
       <li><b>Wi-Fi</b><span>Free. Laptops are welcome.</span></li>
       <li><b>Outdoor seating</b><span>A patio with heaters, so it stays useful into the cooler months.</span></li>
       <li><b>The private room</b><span>Free for a meeting of up to ${site.conferenceRoomMinutes} minutes, or book it for a group of ${site.privateRoom.min} to ${site.privateRoom.max} at no fee. <a href="${u("/private-room/")}">Details and booking</a>.</span></li>
-      <li><b>Kids</b><span>Welcome. We don't have high chairs yet.</span></li>
+      <li><b>Kids</b><span>Welcome, and we have high chairs.</span></li>
     </ul>
   </div>
 </section>
@@ -340,7 +340,7 @@ const visit = () => `
   </ul>
   <img src="${u("/assets/img/patio.jpg")}" alt="The patio under a canopy: a mosaic table, planters of red canna lilies and sweet-potato vine, and the parking lot beyond." width="1010" height="1300" loading="lazy" style="border-radius:6px;max-width:520px;margin:10px 0 26px">
   <h2>Bringing kids</h2>
-  <p>Kids are welcome, and a PB&amp;J on sourdough is on the menu for them. We don't have high chairs yet. Weekend mornings are the calmest time to come with little ones.</p>
+  <p>Kids are welcome. We have high chairs, and a PB&amp;J on sourdough is on the menu for them. Weekend mornings are the calmest time to come with little ones.</p>
   <div class="tw">
     <h3>Planning the rest of the weekend?</h3>
     <p>The family that runs the café also writes <a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}: what's on this weekend around Wilmington, sorted by age, with the honest details about parking, cost, and crowds.</p>
