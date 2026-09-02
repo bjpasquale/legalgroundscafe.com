@@ -1,0 +1,45 @@
+{
+  "headline": {
+    "outlet": "USA Today",
+    "year": 2019,
+    "text": "Best coffee shop in Delaware",
+    "detail": "Named Delaware's pick in “Best Coffee Shop in Each State,” a fifty-state list built from Yelp ratings.",
+    "url": "https://www.usatoday.com/picture-gallery/travel/experience/food-and-wine/2019/10/25/best-coffee-shops-each-state-according-yelp/4075216002/"
+  },
+  "items": [
+    {
+      "outlet": "Eat This, Not That!",
+      "title": "Best Breakfast in Every State",
+      "detail": "Delaware's pick.",
+      "url": "https://www.eatthis.com/best-breakfast-every-state/"
+    },
+    {
+      "outlet": "Delaware Online",
+      "year": 2018,
+      "title": "Old-World charm at Legal Grounds Café in Elsmere",
+      "url": "https://www.delawareonline.com/story/life/food/2018/03/05/european-style-legal-grounds-cafe-elsmere/367051002/"
+    },
+    {
+      "outlet": "Town Square Delaware",
+      "year": 2020,
+      "title": "A Latte Talent at Elsmere's Legal Grounds Cafe",
+      "url": ""
+    },
+    {
+      "outlet": "Nextdoor",
+      "title": "Neighborhood Favorite",
+      "detail": "Voted by neighbors, 2020 through 2024.",
+      "url": "",
+      "confirm": true
+    }
+  ],
+  "reviewSites": [
+    { "name": "Google", "note": "4.8 stars from more than 400 reviews", "key": "google" },
+    { "name": "TripAdvisor", "note": "Ranked #1 of 29 coffee & tea spots in Wilmington", "key": "tripadvisor" },
+    { "name": "Yelp", "note": "140 reviews and counting", "key": "yelp" }
+  ],
+  "quotes": [
+    { "text": "Everyone raves about the salmon avocado toast and it does not disappoint. Everything is made to order so it comes out fresh.", "who": "Anna P.", "source": "Yelp", "year": 2018 },
+    { "text": "Going to be my favorite spot for breakfast now. Staff are super friendly.", "who": "Jennifer G.", "source": "Yelp", "year": 2018 }
+  ]
+}

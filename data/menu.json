@@ -1,0 +1,71 @@
+{
+  "asOf": "March 2025",
+  "notes": [
+    "Coffee and tea by Rival Bros Coffee.",
+    "Everything is made fresh to order. Thank you for your patience."
+  ],
+  "legend": { "V": "Vegetarian", "VG": "Vegan", "GF": "Gluten free" },
+  "seasonal": {
+    "title": "",
+    "items": []
+  },
+  "sections": [
+    {
+      "id": "coffee",
+      "title": "Coffee & More",
+      "sizes": ["Sm", "Md", "Lg"],
+      "items": [
+        { "name": "Drip Coffee", "prices": [2.75, 3.00, 3.50] },
+        { "name": "Cold Brew Coffee", "prices": [null, 4.50, 5.25] },
+        { "name": "Espresso", "desc": "Double shot", "prices": [3.00, null, null] },
+        { "name": "Macchiato", "prices": [3.50, 4.50, 5.25] },
+        { "name": "Americano", "prices": [3.50, 4.50, 5.25] },
+        { "name": "Cappuccino", "prices": [4.00, 4.50, 5.25] },
+        { "name": "Caffè Latte", "prices": [4.00, 4.50, 5.25] },
+        { "name": "Chai Latte", "prices": [4.00, 4.75, 6.00] },
+        { "name": "Caffè Mocha", "prices": [4.00, 4.75, 6.00] },
+        { "name": "Specialty Latte", "desc": "Ask what's on this week", "prices": [4.75, 5.50, 6.00] },
+        { "name": "Shakerato", "desc": "Espresso shaken over ice", "prices": [null, 4.50, null] },
+        { "name": "Smoothie", "prices": [null, 5.50, null] },
+        { "name": "Affogato", "desc": "Espresso over gelato", "prices": [null, 5.50, null] },
+        { "name": "Hot Tea", "prices": [null, 3.50, null] },
+        { "name": "Iced Tea", "prices": [3.00, 3.50, 4.00] }
+      ],
+      "extras": [
+        { "name": "Extra shot of espresso", "price": 1.00 },
+        { "name": "Add syrup or sauce to any drink", "price": 0.50 }
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Breakfast & Lunch",
+      "items": [
+        { "name": "Breakfast Sandwich", "desc": "Egg and cheese on a bagel, croissant, or toast. Add bacon, sausage, or ham for $1.50.", "price": 6.00 },
+        { "name": "BLT", "desc": "Bacon, romaine, tomatoes, mayo on nine-grain bread.", "price": 10.00 },
+        { "name": "Salmon Avocado Toast", "desc": "Avocado, smoked salmon, red onions, tomatoes, capers, cream cheese spread on nine-grain bread.", "price": 13.00 },
+        { "name": "Pesto Caprese", "desc": "Fresh mozzarella, tomatoes, pesto, balsamic reduction on sourdough. Add chicken for $1.50.", "price": 9.50, "tags": ["V"] },
+        { "name": "Turkey Sandwich", "desc": "Turkey, romaine, roasted red peppers, provolone, whole-grain mustard on batard.", "price": 10.00 },
+        { "name": "Italian Panini", "desc": "Ham, salami, roasted peppers, provolone, pesto, pressed on batard.", "price": 10.50 },
+        { "name": "Grilled Cheese", "desc": "Swiss, muenster, and cheddar on sourdough. Add ham for $1.50.", "price": 8.50, "tags": ["V"] },
+        { "name": "Homestyle PB&J", "desc": "Peanut butter and strawberry preserves on sourdough.", "price": 6.00, "tags": ["V"] },
+        { "name": "Quinoa Bowl", "desc": "Broccoli, quinoa, carrots, cilantro, green onions, shallots. Ready to go in the fridge.", "price": 9.50, "tags": ["VG", "GF"] },
+        { "name": "Chicken Caesar Salad", "desc": "Chicken, romaine, parmesan, croutons, Caesar dressing. As a bowl or a wrap.", "price": 10.50 },
+        { "name": "Cobb Salad", "desc": "Lettuce, hard-boiled egg, bacon, avocado, blue cheese, cherry tomatoes. Add chicken for $1.50.", "price": 10.50 },
+        { "name": "Quiche of the Day", "desc": "Ask what's in the case today.", "price": 8.50 }
+      ]
+    },
+    {
+      "id": "bakery",
+      "title": "Quick Bites",
+      "intro": "From the pastry case, $3.50 each.",
+      "items": [
+        { "name": "Bagels", "price": 3.50 },
+        { "name": "Danish", "price": 3.50 },
+        { "name": "Muffins", "price": 3.50 },
+        { "name": "Croissants", "price": 3.50 },
+        { "name": "Cookies", "price": 3.50 },
+        { "name": "Yogurt Parfait", "price": 3.50 }
+      ]
+    }
+  ]
+}

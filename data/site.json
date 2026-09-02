@@ -1,0 +1,32 @@
+{
+  "name": "Legal Grounds Café",
+  "shortName": "Legal Grounds",
+  "tagline": "Coffee, breakfast and lunch in Elsmere, minutes from downtown Wilmington.",
+  "url": "https://legalgroundscafe.com",
+  "phone": "(302) 543-7350",
+  "phoneTel": "+13025437350",
+  "email": "info@legalgroundscafe.com",
+  "address": {
+    "street": "1208 Kirkwood Highway",
+    "city": "Elsmere",
+    "state": "DE",
+    "zip": "19805"
+  },
+  "geo": { "lat": 39.739137, "lng": -75.600543 },
+  "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Legal+Grounds+Cafe+1208+Kirkwood+Hwy+Elsmere+DE+19805",
+  "mapsUrl": "https://www.google.com/maps/search/?api=1&query=Legal+Grounds+Cafe+1208+Kirkwood+Hwy+Elsmere+DE+19805",
+  "giftCardUrl": "https://squareup.com/gift/6B20R00TBT5GE/order",
+  "social": {
+    "instagram": "https://www.instagram.com/legalgroundscafedelaware/",
+    "facebook": "https://www.facebook.com/LegalGroundsCafeDelaware/",
+    "yelp": "https://www.yelp.com/biz/legal-grounds-cafe-wilmington",
+    "tripadvisor": "https://www.tripadvisor.com/Restaurant_Review-g34059-d25333167-Reviews-Legal_Grounds_Cafe-Wilmington_Delaware.html",
+    "google": "https://www.google.com/maps/search/?api=1&query=Legal+Grounds+Cafe+1208+Kirkwood+Hwy+Elsmere+DE+19805"
+  },
+  "formEndpoint": "https://formsubmit.co/info@legalgroundscafe.com",
+  "lawFirm": { "name": "Doroshow, Pasquale, Krawitz & Bhaya", "url": "https://www.dplaw.com" },
+  "sister": { "name": "Tiny Weekends", "url": "https://tinyweekends.co", "blurb": "a weekend guide for Delaware families" },
+  "roaster": { "name": "Rival Bros Coffee", "url": "https://www.rivalbros.com" },
+  "privateRoom": { "min": 6, "max": 16 },
+  "conferenceRoomMinutes": 90
+}

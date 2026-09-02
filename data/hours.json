@@ -1,0 +1,19 @@
+{
+  "timezone": "America/New_York",
+  "regular": {
+    "mon": { "open": "06:30", "close": "15:00" },
+    "tue": { "open": "06:30", "close": "15:00" },
+    "wed": { "open": "06:30", "close": "15:00" },
+    "thu": { "open": "06:30", "close": "15:00" },
+    "fri": { "open": "06:30", "close": "15:00" },
+    "sat": { "open": "07:00", "close": "15:00" },
+    "sun": { "open": "07:00", "close": "15:00" }
+  },
+  "closures": [
+    { "date": "2026-11-26", "note": "Closed Thanksgiving Day" },
+    { "date": "2026-12-25", "note": "Closed Christmas Day" },
+    { "date": "2027-01-01", "note": "Closed New Year's Day" }
+  ],
+  "overrides": [],
+  "_help": "closures: full-day closures with a note shown site-wide that day and the day before. overrides: {date, open, close, note} for a one-off change of hours. Times are 24h local."
+}
