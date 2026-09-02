@@ -292,7 +292,7 @@ const privateRoom = () => `
   </div>
   <div class="prose">
     <h2>How it works</h2>
-    <p>Send the form below or call <a href="tel:${site.phoneTel}">${esc(site.phone)}</a> with a date, a time, and a headcount. We confirm by email, usually within a business day. Order from the regular menu when you arrive, or tell us ahead of time what your group needs and we'll have it ready. A screen on the wall takes a laptop for presentations.</p>
+    <p>Send the form below or call <a href="tel:${site.phoneTel}">${esc(site.phone)}</a> with a date, a time, and a headcount. We confirm by email, usually within a business day. Order from the regular menu when you arrive.</p>
     <p>Need it for a smaller meeting? The same room is free for up to ${site.conferenceRoomMinutes} minutes. Same form, or just call.</p>
     <h2>Request a date</h2>
   </div>
@@ -312,7 +312,7 @@ const privateRoom = () => `
       <div class="field"><label for="f-len">How long</label><select id="f-len" name="length"><option>Up to 90 minutes</option><option>Two to three hours</option><option>Longer, let's talk</option></select></div>
       <div class="field"><label for="f-occ">Occasion</label><input id="f-occ" name="occasion" placeholder="Book club, lunch meeting, birthday…"></div>
     </div>
-    <div class="field"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" rows="4" placeholder="Food ahead of time, dietary needs, a laptop for the screen…"></textarea></div>
+    <div class="field"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" rows="4" placeholder="Anything we should know"></textarea></div>
     <button class="btn primary" type="submit">Send request</button>
   </form>
 </div>
