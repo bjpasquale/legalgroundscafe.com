@@ -24,6 +24,7 @@
     "google": "https://www.google.com/maps/search/?api=1&query=Legal+Grounds+Cafe+1208+Kirkwood+Hwy+Elsmere+DE+19805"
   },
   "formEndpoint": "https://formsubmit.co/info@legalgroundscafe.com",
+  "signupUrl": "https://squareup.com/customer-programs/enroll/b31fiaS8HGc7?utm_medium=website&utm_source=legalgroundscafe.com",
   "lawFirm": { "name": "Doroshow, Pasquale, Krawitz & Bhaya", "url": "https://www.dplaw.com" },
   "sister": { "name": "Tiny Weekends", "url": "https://tinyweekends.co", "blurb": "a weekend guide for Delaware families" },
   "roaster": { "name": "Rival Bros Coffee", "url": "https://www.rivalbros.com" },

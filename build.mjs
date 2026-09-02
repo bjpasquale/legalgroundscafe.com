@@ -240,14 +240,8 @@ const home = () => `
     </div>
     <div class="panel" id="newsletter">
       <h3>Hear from us occasionally</h3>
-      <p>Seasonal drinks, holiday hours, the odd special.</p>
-      <form action="${site.formEndpoint}" method="POST">
-        <input type="hidden" name="_subject" value="Newsletter signup from legalgroundscafe.com">
-        <input type="hidden" name="_next" value="${site.url}/thanks/">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
-        <div class="row"><label class="hp" for="nl-email">Email</label><input id="nl-email" type="email" name="email" placeholder="you@example.com" required style="flex:1;min-width:200px"><button class="btn" type="submit">Sign up</button></div>
-      </form>
+      <p>Seasonal drinks, holiday hours, the odd special. Takes ten seconds, and you can leave any time.</p>
+      <a class="btn" href="${site.signupUrl}" rel="noopener">Join the list</a>
     </div>
   </div>
 </section>

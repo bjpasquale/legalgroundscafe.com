@@ -17,7 +17,8 @@ Squarespace site in September 2026. Ben manages it; the café is presented by th
   `dist/` is git-ignored. Until a `CNAME` file exists the workflow builds with
   `BASE=/<repo>` for the preview URL; adding `CNAME` (containing `legalgroundscafe.com`) switches
   it to the domain root.
-- **Forms** (private room request, newsletter) post to FormSubmit at `site.json → formEndpoint`
+- **Newsletter signup** links to Square's free hosted sign-up page (`site.json → signupUrl`); those emails land in Square's Collected Emails as the café's own data and export normally.
+- **Forms** (private room request) post to FormSubmit at `site.json → formEndpoint`
   (info@legalgroundscafe.com). FormSubmit needs a one-time activation click from that inbox after
   the first submission. No account, no server. Newsletter signups arrive as email until a Brevo
   form replaces the field.
