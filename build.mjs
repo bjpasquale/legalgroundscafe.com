@@ -117,10 +117,10 @@ ${ld ? `<script type="application/ld+json">${JSON.stringify(ld)}</script>` : ""}
     <nav class="nav" aria-label="Main">
       ${NAV.map(([p, l]) => `<a href="${u(p)}"${current === p ? ' aria-current="page"' : ""}>${l}</a>`).join("\n      ")}
     </nav>
-    <span class="open-badge" aria-live="polite">${esc(hoursLine)}</span>
+    <span class="open-badge">${esc(hoursLine)}</span>
   </div>
 </header>
-<main id="main">
+<main id="main" tabindex="-1">
 ${body}
 </main>
 <footer class="site-footer">
@@ -128,27 +128,25 @@ ${body}
     <div class="foot-grid">
       <div class="foot-brand">
         <img src="${u("/assets/img/figure.png")}" alt="" width="640" height="900">
-        <div><span class="wordmark">Legal Grounds Café</span><span class="foot-sub">Elsmere, Delaware · since 2017</span></div>
+        <div><span class="wordmark">Legal Grounds Café</span><span class="foot-sub">Elsmere, Delaware · since 2017</span><p class="credit">Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> and <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a></p><p class="credit">From the same family: <a href="${site.sister.url}" rel="noopener">${site.sister.name}</a></p></div>
       </div>
       <div>
-        <h4>Find us</h4>
+        <h2 class="foot-h">Find us</h2>
         <p>${esc(addr1)}<br>${esc(addr2)}</p>
         <p><a href="${site.directionsUrl}" rel="noopener">Directions</a> · free parking in back</p>
       </div>
       <div>
-        <h4>Hours</h4>
+        <h2 class="foot-h">Hours</h2>
         <ul class="hours-list">${hoursList}</ul>
       </div>
       <div>
-        <h4>Reach us</h4>
+        <h2 class="foot-h">Reach us</h2>
         <p><a href="tel:${site.phoneTel}">${esc(site.phone)}</a><br><a href="mailto:${site.email}">${site.email}</a></p>
         <p class="foot-links"><a href="${site.social.instagram}" rel="noopener">Instagram</a><a href="${site.social.facebook}" rel="noopener">Facebook</a><a href="${site.social.yelp}" rel="noopener">Yelp</a><a href="${site.social.tripadvisor}" rel="noopener">TripAdvisor</a></p>
       </div>
     </div>
     <div class="fine">
-      <span>© ${new Date().getFullYear()} Legal Grounds Café</span>
-      <span>Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> and <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a></span>
-      <span>From the same family: <a href="${site.sister.url}" rel="noopener">${site.sister.name}</a></span>
+      <span>© ${new Date().getFullYear()} Legal Grounds Café · ${esc(addr1)}, ${esc(addr2)}</span>
       <span><a href="${site.giftCardUrl}" rel="noopener">Gift cards</a></span>
     </div>
   </div>
@@ -160,7 +158,8 @@ ${body}
 `;
 }
 
-const ph = (label, ratio = "r43") => `<div class="ph ${ratio}" role="img" aria-label="Photo coming soon: ${esc(label)}">Photo coming:<br>${esc(label)}</div>`;
+const SPEC = `<div class="spec"><div><b>${site.privateRoom.min}–${site.privateRoom.max}</b><span>seats at one long table</span></div><div><b>$0</b><span>reservation fee</span></div><div><b>Free lot</b><span>parking behind the building</span></div></div>`;
+const ph = (label, ratio = "r43") => `<div class="ph ${ratio}" aria-hidden="true">Photo coming:<br>${esc(label)}</div>`;
 
 // ---------- Pages ----------
 const home = () => `
@@ -176,7 +175,7 @@ const home = () => `
         <li><span class="label">Call</span><span><a href="tel:${site.phoneTel}">${esc(site.phone)}</a></span></li>
       </ul>
       <div class="btn-row"><a class="btn primary" href="${u("/menu/")}">See the menu</a><a class="btn" href="${u("/private-room/")}">Book the private room</a></div>
-      <p class="presented">Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> and <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a>.</p>
+      <p class="presented">Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> &nbsp;·&nbsp; <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a></p>
     </div>
   </div>
 </section>
@@ -189,7 +188,7 @@ const home = () => `
     <div class="three">
       <div class="card"><img src="${u("/assets/img/breakfast-sandwich.jpg")}" alt="A bacon, egg and cheese on an everything bagel, cut in half, with sliced strawberries." width="1000" height="1000" loading="lazy"><h3>Breakfast sandwich</h3><p>Egg and cheese on a bagel, croissant or toast, with bacon, sausage or ham if you like. Made when you order it.</p><p class="price">from $6</p></div>
       <div class="card"><img src="${u("/assets/img/specialty-latte.jpg")}" alt="A pumpkin spice latte with a fern poured in the foam, in front of a tray of small pumpkins." width="1000" height="1000" loading="lazy"><h3>The specialty latte</h3><p>A rotating house latte. The s'mores latte has a following. Ask what's on this week.</p><p class="price">from $4.75</p></div>
-      <div class="card">${ph("Quiche of the day")}<h3>Quiche of the day</h3><p>Baked in-house, different every day. Ask what's in the case, and get there before lunch.</p><p class="price">$8.50</p></div>
+      <div class="card">${ph("Quiche of the day", "r11")}<h3>Quiche of the day</h3><p>Baked in-house, different every day. Ask what's in the case, and get there before lunch.</p><p class="price">$8.50</p></div>
     </div>
   </div>
 </section>
@@ -203,17 +202,19 @@ const home = () => `
       <li><b>Outdoor seating</b><span>A patio with heaters, so it stays useful into the cooler months.</span></li>
       <li><b>The private room</b><span>Free for a meeting of up to ${site.conferenceRoomMinutes} minutes, or book it for a group of ${site.privateRoom.min} to ${site.privateRoom.max} at no fee. <a href="${u("/private-room/")}">Details and booking</a>.</span></li>
       <li><b>Kids</b><span>Welcome, and we have high chairs.</span></li>
+      <li><b>Gift cards</b><span>By email in a minute, or a physical card at the register.</span></li>
     </ul>
   </div>
 </section>
 
-<section class="section">
+<section class="section room">
   <div class="wrap two">
     <div><img src="${u("/assets/img/private-room.jpg")}" alt="The private dining room: a long reclaimed-wood table with bentwood chairs, leather armchairs, and a wall-mounted screen under the copper ceiling." width="1800" height="1800" loading="lazy"></div>
     <div>
       <span class="label">The private room</span>
-      <h2 style="margin:8px 0 12px">Your own room, no fee.</h2>
+      <h2>Your own room, no fee.</h2>
       <p>A long table for ${site.privateRoom.min} to ${site.privateRoom.max}, a screen on the wall, and a door that closes. Book clubs, firm lunches, birthdays, depositions that need coffee. Smaller meeting? Use it free for up to ${site.conferenceRoomMinutes} minutes.</p>
+      ${SPEC}
       <a class="btn" href="${u("/private-room/")}">Request a date</a>
     </div>
   </div>
@@ -221,7 +222,7 @@ const home = () => `
 
 <section class="section affiliates">
   <div class="wrap">
-    <div class="section-head centered"><span class="label">Presented by</span><h2>The two companies behind Legal Grounds.</h2><p>The café was opened by the law firm upstairs and is owned with the family's real estate company. Both are a few steps away.</p></div>
+    <div class="section-head centered"><span class="label">Ownership</span><h2>The two companies behind Legal Grounds.</h2><p>The café was opened by the law firm upstairs and is owned with the family's real estate company. Both are a few steps away.</p></div>
     <div class="owners">
       <a class="owner" href="${site.lawFirm.url}" rel="noopener"><span class="owner-img"><img src="${u("/assets/img/dplaw.jpg")}" alt="The four named partners of Doroshow, Pasquale, Krawitz & Bhaya in front of the firm's sign." width="940" height="1000" loading="lazy"></span><span class="owner-body"><span class="label">Law firm · Est. 1978</span><h3>${esc(site.lawFirm.name)}</h3><p>Delaware's personal injury and workers' compensation firm, with its main office upstairs from the café and offices across the state. They opened Legal Grounds in 2017 so their people and their neighbors would have somewhere good to go.</p><span class="more">Visit dplaw.com</span></span></a>
       <a class="owner" href="https://othde.com" rel="noopener"><span class="owner-img"><img src="${u("/assets/img/oth.jpg")}" alt="The stone façade of Old Town Hall in Wilmington." width="1400" height="612" loading="lazy"></span><span class="owner-body"><span class="label">Commercial real estate · Wilmington</span><h3>Old Town Hall Associates</h3><p>The family's commercial real estate company, with office and retail buildings across northern Delaware, including the one you're sitting in.</p><span class="more">Visit othde.com</span></span></a>
@@ -257,9 +258,9 @@ function menuPage() {
     let body;
     if (s.sizes) {
       body = `<div class="sized"><div class="h"></div>${s.sizes.map((z) => `<div class="h p">${z}</div>`).join("")}` +
-        s.items.map((it) => `<div class="n">${esc(it.name)}${it.desc ? `<small>${esc(it.desc)}</small>` : ""}</div>` + it.prices.map((p) => `<div class="p${p == null ? " none" : ""}">${p == null ? "–" : money(p)}</div>`).join("")).join("") + `</div>`;
+        s.items.map((it) => `<div class="n">${esc(it.name)}${it.desc ? `<small>${esc(it.desc)}</small>` : ""}</div>` + it.prices.map((p) => `<div class="p${p == null ? " none" : ""}">${p == null ? '<span aria-hidden="true">–</span><span class="sr-only">not offered</span>' : money(p)}</div>`).join("")).join("") + `</div>`;
     } else {
-      body = `<ul class="menu-list">` + s.items.map((it) => `<li class="menu-item"><span class="name">${esc(it.name)}${(it.tags || []).map((t) => `<span class="tag" title="${esc(menu.legend[t] || t)}">${t}</span>`).join("")}</span><span class="price">${money(it.price)}</span>${it.desc ? `<span class="desc">${esc(it.desc)}</span>` : ""}</li>`).join("") + `</ul>`;
+      body = `<ul class="menu-list">` + s.items.map((it) => `<li class="menu-item"><span class="name">${esc(it.name)}${(it.tags || []).map((t) => `<span class="tag" title="${esc(menu.legend[t] || t)}" aria-label="${esc(menu.legend[t] || t)}">${t}</span>`).join("")}</span><span class="price">${money(it.price)}</span>${it.desc ? `<span class="desc">${esc(it.desc)}</span>` : ""}</li>`).join("") + `</ul>`;
     }
     const extras = s.extras ? `<ul class="extras">${s.extras.map((e) => `<li><span>${esc(e.name)}</span><span class="price">${money(e.price)}</span></li>`).join("")}</ul>` : "";
     return `<section class="menu-section" id="${s.id}"><h2>${esc(s.title)}</h2>${s.intro ? `<p class="intro">${esc(s.intro)}</p>` : ""}${body}${extras}</section>`;
@@ -274,7 +275,7 @@ function menuPage() {
   <ul class="menu-jump">${menu.sections.map((s) => `<li><a href="#${s.id}">${esc(s.title)}</a></li>`).join("")}</ul>
 </div>
 <div class="wrap narrow page-body">
-  <img src="${u("/assets/img/latte-togo.jpg")}" alt="A latte in a compostable paper cup on the marble counter, next to a green glass bottle of eucalyptus." width="1000" height="1000" loading="lazy" class="photo photo-sm">
+  <img src="${u("/assets/img/latte-togo.jpg")}" alt="A latte in a compostable paper cup on the marble counter, next to a green glass bottle of eucalyptus." width="1000" height="1000" fetchpriority="high" class="banner-photo">
   ${seasonal}
   ${sec}
   <p class="notice" style="margin-top:30px">We are not a gluten-free or nut-free kitchen. Tell us about an allergy and we'll tell you honestly what we can do.</p>
@@ -289,33 +290,29 @@ const privateRoom = () => `
   <p>Groups of ${site.privateRoom.min} to ${site.privateRoom.max}. Book clubs, firm lunches, birthdays, study groups, a deposition that needs good coffee.</p>
 </div>
 <div class="wrap narrow page-body">
-  <img src="${u("/assets/img/private-room.jpg")}" alt="Three views of the private room: leather armchairs by the door, the long reclaimed-wood table with bentwood chairs, and the wall screen." width="1800" height="1800" class="photo photo-full">
-  <div class="spec">
-    <div><b>${site.privateRoom.min}–${site.privateRoom.max}</b><span>seats at one long table</span></div>
-    <div><b>$0</b><span>reservation fee</span></div>
-    <div><b>Free lot</b><span>parking behind the building</span></div>
-  </div>
+  <img src="${u("/assets/img/private-room.jpg")}" alt="Three views of the private room: leather armchairs by the door, the long reclaimed-wood table with bentwood chairs, and the wall screen." width="1800" height="1800" class="photo photo-full" fetchpriority="high">
+  ${SPEC}
   <div class="prose">
     <h2>How it works</h2>
     <p>Send the form below or call <a href="tel:${site.phoneTel}">${esc(site.phone)}</a> with a date, a time, and a headcount. We confirm by email, usually within a business day. Order from the regular menu when you arrive.</p>
     <p>Need it for a smaller meeting? The same room is free for up to ${site.conferenceRoomMinutes} minutes. Same form, or just call.</p>
-    <h2>Request a date</h2>
+    <h2 id="request">Request a date</h2>
   </div>
-  <form action="${site.formEndpoint}" method="POST">
+  <form action="${site.formEndpoint}" method="POST" aria-labelledby="request">
     <input type="hidden" name="_subject" value="Private room request from legalgroundscafe.com">
     <input type="hidden" name="_next" value="${site.url}/thanks/">
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_template" value="table">
     <input type="text" name="_honey" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
     <div class="grid2">
+      <div class="field"><label for="f-date">Date</label><input id="f-date" type="date" name="date" required></div>
+      <div class="field"><label for="f-time">Time</label><input id="f-time" type="time" name="time" required></div>
+      <div class="field"><label for="f-count">How many people</label><input id="f-count" type="number" name="headcount" min="1" max="${site.privateRoom.max}" inputmode="numeric" required></div>
+      <div class="field"><label for="f-len">How long</label><select id="f-len" name="length"><option>Up to 90 minutes</option><option>Two to three hours</option><option>Longer, let's talk</option></select></div>
+      <div class="field"><label for="f-occ">Occasion</label><input id="f-occ" name="occasion" placeholder="Book club, lunch meeting, birthday…"></div>
       <div class="field"><label for="f-name">Your name</label><input id="f-name" name="name" required autocomplete="name"></div>
       <div class="field"><label for="f-email">Email</label><input id="f-email" type="email" name="email" required autocomplete="email"></div>
       <div class="field"><label for="f-phone">Phone</label><input id="f-phone" type="tel" name="phone" autocomplete="tel"></div>
-      <div class="field"><label for="f-date">Date</label><input id="f-date" type="date" name="date" required></div>
-      <div class="field"><label for="f-time">Time</label><input id="f-time" type="time" name="time" required></div>
-      <div class="field"><label for="f-count">How many people</label><input id="f-count" type="number" name="headcount" min="1" max="30" required></div>
-      <div class="field"><label for="f-len">How long</label><select id="f-len" name="length"><option>Up to 90 minutes</option><option>Two to three hours</option><option>Longer, let's talk</option></select></div>
-      <div class="field"><label for="f-occ">Occasion</label><input id="f-occ" name="occasion" placeholder="Book club, lunch meeting, birthday…"></div>
     </div>
     <div class="field"><label for="f-notes">Anything else</label><textarea id="f-notes" name="notes" rows="4" placeholder="Anything we should know"></textarea></div>
     <button class="btn primary" type="submit">Send request</button>
@@ -331,7 +328,7 @@ const visit = () => `
   <div class="btn-row"><a class="btn primary" href="${site.directionsUrl}" rel="noopener">Get directions</a><a class="btn" href="tel:${site.phoneTel}">Call ${esc(site.phone)}</a></div>
 </div>
 <div class="wrap narrow page-body prose">
-  <img src="${u("/assets/img/exterior.jpg")}" alt="The café's front on Kirkwood Highway: black awning lettered Legal Grounds Café, blue double doors, planters full of flowers, and a mosaic bistro table." width="1010" height="1300" loading="lazy" class="photo">
+  <img src="${u("/assets/img/exterior.jpg")}" alt="The café's front on Kirkwood Highway: black awning lettered Legal Grounds Café, blue double doors, planters full of flowers, and a mosaic bistro table." width="1010" height="1300" fetchpriority="high" class="figure-wide">
   <h2>Hours</h2>
   <ul class="hours-list">${hoursList}</ul>
   <p>We close the kitchen and the doors at 3. Holiday hours show up at the top of every page the day before.</p>
@@ -360,12 +357,15 @@ const story = () => `
   <p>Hence the name, and the lady with the scales on our sign.</p>
 </div>
 <div class="wrap narrow page-body prose">
-  <p>Legal Grounds opened in 2017 on the ground floor of 1208 Kirkwood Highway, the building that houses the law offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>. The firm opened it for two groups of people: its own employees, who wanted somewhere good to get coffee and lunch without leaving the building, and the neighborhood of Elsmere, which didn't have a café of its own.</p>
+  <p class="story-lede">Legal Grounds opened in 2017 on the ground floor of 1208 Kirkwood Highway, the building that houses the law offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>. The firm opened it for two groups of people: its own employees, who wanted somewhere good to get coffee and lunch without leaving the building, and the neighborhood of Elsmere, which didn't have a café of its own.</p>
   <p>The room was built to feel like the cafés the family loves in Europe. A pressed-copper ceiling, a marble counter, black bistro chairs, framed prints on sage-green walls. It photographs well, but it's better in person at seven in the morning with the light coming in.</p>
-  <img src="${u("/assets/img/artwall.jpg")}" alt="A wall of abstract paintings by a local artist above a butcher-block table with a vase of flowers, under the copper ceiling." width="1010" height="1346" loading="lazy" class="photo">
+  <img src="${u("/assets/img/artwall.jpg")}" alt="A wall of abstract paintings by a local artist above a butcher-block table with a vase of flowers, under the copper ceiling." width="1010" height="1346" loading="lazy" class="figure-wide">
   <p>The coffee comes from <a href="${site.roaster.url}" rel="noopener">${esc(site.roaster.name)}</a>, a small roaster in Philadelphia. The quiche is baked here, and it changes every day. The sandwiches are made when you order them, which is why we ask for a little patience at the lunch rush.</p>
-  <p>In 2019 USA Today named us the best coffee shop in Delaware, and the people who come in every morning have kept us on the lists since. Most of them we know by name and by order. We'd like to know yours.</p>
-  <div class="story-row"><img src="${u("/assets/img/rivalbros.jpg")}" alt="Proudly serving Rival Bros Coffee Roasters, established 2011." width="400" height="500" loading="lazy"><div><p class="label">Also from the family</p><p><a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}.</p></div></div>
+  <blockquote class="quote"><p>“Best coffee shop in Delaware.”</p><cite>USA Today, 2019</cite></blockquote>
+  <p>The people who come in every morning have kept us on the lists since. Most of them we know by name and by order. We'd like to know yours.</p>
+  <div class="story-row"><img src="${u("/assets/img/rivalbros.jpg")}" alt="Proudly serving Rival Bros Coffee Roasters, established 2011." width="400" height="500" loading="lazy"><div><p class="label">Our coffee</p><p>Roasted by <a href="${site.roaster.url}" rel="noopener">${esc(site.roaster.name)}</a> in Philadelphia, delivered fresh every week.</p></div></div>
+  <p class="label" style="margin-top:32px">Also from the family</p>
+  <p><a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}.</p>
 </div>
 `;
 
@@ -376,8 +376,8 @@ const pressPage = () => `
 </div>
 <div class="wrap narrow page-body">
   <div class="press-grid">
-    <div class="press-card"><span class="label">${esc(press.headline.outlet)} · ${press.headline.year}</span><h3>${esc(press.headline.text)}</h3><p>${esc(press.headline.detail)}</p><a href="${press.headline.url}" rel="noopener">Read the list</a></div>
-    ${press.items.map((p) => `<div class="press-card"><span class="label">${esc(p.outlet)}${p.year ? ` · ${p.year}` : ""}</span><h3>${esc(p.title)}</h3>${p.detail ? `<p>${esc(p.detail)}</p>` : ""}${p.url ? `<a href="${p.url}" rel="noopener">Read it</a>` : ""}</div>`).join("")}
+    <div class="press-card"><span class="label">${esc(press.headline.outlet)} · ${press.headline.year}</span><h2>${esc(press.headline.text)}</h2><p>${esc(press.headline.detail)}</p><a href="${press.headline.url}" rel="noopener">Read the list</a></div>
+    ${press.items.map((p) => `<div class="press-card"><span class="label">${esc(p.outlet)}${p.year ? ` · ${p.year}` : ""}</span><h2>${esc(p.title)}</h2>${p.detail ? `<p>${esc(p.detail)}</p>` : ""}${p.url ? `<a href="${p.url}" rel="noopener">Read it</a>` : ""}</div>`).join("")}
   </div>
   <div class="prose"><h2>From guests</h2></div>
   ${press.quotes.map((q) => `<blockquote class="quote"><p>“${esc(q.text)}”</p><cite>${esc(q.who)}, on ${esc(q.source)}, ${q.year}</cite></blockquote>`).join("")}
@@ -436,6 +436,12 @@ for (const [from, to] of Object.entries(redirects)) {
 
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(join(OUT, "sitemap.xml"), `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${pages.filter((p) => !p.noindex).map((p) => `  <url><loc>${site.url}${p.path}</loc><lastmod>${today}</lastmod></url>`).join("\n")}\n</urlset>\n`);
-writeFileSync(join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nSitemap: ${site.url}/sitemap.xml\n`);
+writeFileSync(join(OUT, "robots.txt"), `User-agent: *\nAllow: /\nDisallow: /_h/\nSitemap: ${site.url}/sitemap.xml\n`);
+// Dev harness: real pages inside a 390px iframe, for phone-width screenshots from headless Chrome (500px minimum window).
+mkdirSync(join(OUT, "_h"), { recursive: true });
+for (const p of pages) {
+  const n = p.path === "/" ? "home" : p.path.replace(/\//g, "");
+  writeFileSync(join(OUT, "_h", `${n}.html`), `<!doctype html><html><head><meta name="robots" content="noindex"></head><body style="margin:0;background:#888"><iframe src="${u(p.path)}" style="border:0;width:390px;height:3200px;display:block"></iframe></body></html>`);
+}
 if (existsSync(join(ROOT, "CNAME"))) cpSync(join(ROOT, "CNAME"), join(OUT, "CNAME"));
 console.log(`Built ${pages.length} pages + ${Object.keys(redirects).length} redirects → dist/ (BASE="${BASE}")`);
