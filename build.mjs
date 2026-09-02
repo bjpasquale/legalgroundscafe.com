@@ -125,25 +125,31 @@ ${body}
 </main>
 <footer class="site-footer">
   <div class="wrap">
-    <div>
-      <h4>Legal Grounds Café</h4>
-      <p>${esc(addr1)}<br>${esc(addr2)}</p>
-      <p><a href="tel:${site.phoneTel}">${esc(site.phone)}</a><br><a href="mailto:${site.email}">${site.email}</a></p>
-      <p><a href="${site.directionsUrl}" rel="noopener">Get directions</a></p>
-    </div>
-    <div>
-      <h4>Hours</h4>
-      <ul class="hours">${hoursList}</ul>
-    </div>
-    <div>
-      <h4>Elsewhere</h4>
-      <p><a href="${site.social.instagram}" rel="noopener">Instagram</a><br><a href="${site.social.facebook}" rel="noopener">Facebook</a><br><a href="${site.social.yelp}" rel="noopener">Yelp</a><br><a href="${site.social.tripadvisor}" rel="noopener">TripAdvisor</a></p>
-      <p><a href="${site.giftCardUrl}" rel="noopener">Gift cards</a></p>
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <img src="${u("/assets/img/figure.png")}" alt="" width="640" height="900">
+        <div><span class="wordmark">Legal Grounds Café</span><span class="foot-sub">Elsmere, Delaware · since 2017</span></div>
+      </div>
+      <div>
+        <h4>Find us</h4>
+        <p>${esc(addr1)}<br>${esc(addr2)}</p>
+        <p><a href="${site.directionsUrl}" rel="noopener">Directions</a> · free parking in back</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <ul class="hours-list">${hoursList}</ul>
+      </div>
+      <div>
+        <h4>Reach us</h4>
+        <p><a href="tel:${site.phoneTel}">${esc(site.phone)}</a><br><a href="mailto:${site.email}">${site.email}</a></p>
+        <p class="foot-links"><a href="${site.social.instagram}" rel="noopener">Instagram</a><a href="${site.social.facebook}" rel="noopener">Facebook</a><a href="${site.social.yelp}" rel="noopener">Yelp</a><a href="${site.social.tripadvisor}" rel="noopener">TripAdvisor</a></p>
+      </div>
     </div>
     <div class="fine">
       <span>© ${new Date().getFullYear()} Legal Grounds Café</span>
-      <span>Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a></span>
-      <span>From the same family: <a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}</span>
+      <span>Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> and <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a></span>
+      <span>From the same family: <a href="${site.sister.url}" rel="noopener">${site.sister.name}</a></span>
+      <span><a href="${site.giftCardUrl}" rel="noopener">Gift cards</a></span>
     </div>
   </div>
 </footer>
@@ -170,12 +176,12 @@ const home = () => `
         <li><span class="label">Call</span><span><a href="tel:${site.phoneTel}">${esc(site.phone)}</a></span></li>
       </ul>
       <div class="btn-row"><a class="btn primary" href="${u("/menu/")}">See the menu</a><a class="btn" href="${u("/private-room/")}">Book the private room</a></div>
-      <p class="presented"><img src="${u("/assets/img/dplogo.png")}" alt="" width="217" height="255"><span>Presented by the Law Offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>, upstairs in the same building.</span></p>
+      <p class="presented">Presented by <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a> and <a href="https://othde.com" rel="noopener">Old Town Hall Associates</a>.</p>
     </div>
   </div>
 </section>
 
-<div class="press-line"><div class="wrap"><a href="${press.headline.url}" rel="noopener">“${esc(press.headline.text)}”</a><small>${esc(press.headline.outlet)}, ${press.headline.year}</small></div></div>
+<div class="press-line"><div class="wrap creds"><a href="${press.headline.url}" rel="noopener"><span class="serif">“${esc(press.headline.text)}”</span><small>${esc(press.headline.outlet)}, ${press.headline.year}</small></a><a href="${site.social.tripadvisor}" rel="noopener"><span class="serif">#1 of 29 coffee &amp; tea spots in Wilmington</span><small>TripAdvisor travelers, 5.0 rating</small></a></div></div>
 
 <section class="section">
   <div class="wrap">
@@ -215,11 +221,10 @@ const home = () => `
 
 <section class="section affiliates">
   <div class="wrap">
-    <div class="section-head"><span class="label">Our family of businesses</span><h2>The people behind the café.</h2></div>
-    <div class="three">
-      <a class="aff" href="${site.lawFirm.url}" rel="noopener"><img src="${u("/assets/img/dplaw.jpg")}" alt="The four named partners of Doroshow, Pasquale, Krawitz & Bhaya in front of the firm's sign." width="940" height="1000" loading="lazy"><span class="label">The law firm</span><h3>${esc(site.lawFirm.name)}</h3><p>The Delaware personal injury firm that opened Legal Grounds, representing injured people since 1978. Upstairs in this building, and at offices across the state.</p><span class="more">dplaw.com</span></a>
-      <a class="aff" href="https://othde.com" rel="noopener"><img src="${u("/assets/img/oth.jpg")}" alt="The stone façade of Old Town Hall in Wilmington." width="1400" height="612" loading="lazy"><span class="label">Commercial real estate</span><h3>Old Town Hall Associates</h3><p>The family's commercial real estate company, with office and retail buildings across Delaware, including this one.</p><span class="more">othde.com</span></a>
-      <a class="aff" href="${site.sister.url}" rel="noopener"><img src="${u("/assets/img/tinyweekends.png")}" alt="" width="512" height="512" loading="lazy" class="icon"><span class="label">For families</span><h3>${site.sister.name}</h3><p>A free weekend guide for Delaware families, written by the family that runs the café. What's on this weekend, by age, with the honest details.</p><span class="more">tinyweekends.co</span></a>
+    <div class="section-head centered"><span class="label">Presented by</span><h2>The two companies behind Legal Grounds.</h2><p>The café was opened by the law firm upstairs and is owned with the family's real estate company. Both are a few steps away.</p></div>
+    <div class="owners">
+      <a class="owner" href="${site.lawFirm.url}" rel="noopener"><span class="owner-img"><img src="${u("/assets/img/dplaw.jpg")}" alt="The four named partners of Doroshow, Pasquale, Krawitz & Bhaya in front of the firm's sign." width="940" height="1000" loading="lazy"></span><span class="owner-body"><span class="label">Law firm · Est. 1978</span><h3>${esc(site.lawFirm.name)}</h3><p>Delaware's personal injury and workers' compensation firm, with its main office upstairs from the café and offices across the state. They opened Legal Grounds in 2017 so their people and their neighbors would have somewhere good to go.</p><span class="more">Visit dplaw.com</span></span></a>
+      <a class="owner" href="https://othde.com" rel="noopener"><span class="owner-img"><img src="${u("/assets/img/oth.jpg")}" alt="The stone façade of Old Town Hall in Wilmington." width="1400" height="612" loading="lazy"></span><span class="owner-body"><span class="label">Commercial real estate · Wilmington</span><h3>Old Town Hall Associates</h3><p>The family's commercial real estate company, with office and retail buildings across northern Delaware, including the one you're sitting in.</p><span class="more">Visit othde.com</span></span></a>
     </div>
   </div>
 </section>
@@ -269,7 +274,7 @@ function menuPage() {
   <ul class="menu-jump">${menu.sections.map((s) => `<li><a href="#${s.id}">${esc(s.title)}</a></li>`).join("")}</ul>
 </div>
 <div class="wrap narrow page-body">
-  <img src="${u("/assets/img/latte-togo.jpg")}" alt="A latte in a compostable paper cup on the marble counter, next to a green glass bottle of eucalyptus." width="1000" height="1000" loading="lazy" style="border-radius:6px;max-width:360px;margin:0 0 30px">
+  <img src="${u("/assets/img/latte-togo.jpg")}" alt="A latte in a compostable paper cup on the marble counter, next to a green glass bottle of eucalyptus." width="1000" height="1000" loading="lazy" class="photo photo-sm">
   ${seasonal}
   ${sec}
   <p class="notice" style="margin-top:30px">We are not a gluten-free or nut-free kitchen. Tell us about an allergy and we'll tell you honestly what we can do.</p>
@@ -284,7 +289,7 @@ const privateRoom = () => `
   <p>Groups of ${site.privateRoom.min} to ${site.privateRoom.max}. Book clubs, firm lunches, birthdays, study groups, a deposition that needs good coffee.</p>
 </div>
 <div class="wrap narrow page-body">
-  <img src="${u("/assets/img/private-room.jpg")}" alt="Three views of the private room: leather armchairs by the door, the long reclaimed-wood table with bentwood chairs, and the wall screen." width="1800" height="1800" style="border-radius:6px">
+  <img src="${u("/assets/img/private-room.jpg")}" alt="Three views of the private room: leather armchairs by the door, the long reclaimed-wood table with bentwood chairs, and the wall screen." width="1800" height="1800" class="photo photo-full">
   <div class="spec">
     <div><b>${site.privateRoom.min}–${site.privateRoom.max}</b><span>seats at one long table</span></div>
     <div><b>$0</b><span>reservation fee</span></div>
@@ -326,9 +331,9 @@ const visit = () => `
   <div class="btn-row"><a class="btn primary" href="${site.directionsUrl}" rel="noopener">Get directions</a><a class="btn" href="tel:${site.phoneTel}">Call ${esc(site.phone)}</a></div>
 </div>
 <div class="wrap narrow page-body prose">
-  <img src="${u("/assets/img/exterior.jpg")}" alt="The café's front on Kirkwood Highway: black awning lettered Legal Grounds Café, blue double doors, planters full of flowers, and a mosaic bistro table." width="1010" height="1300" loading="lazy" style="border-radius:6px;max-width:520px">
+  <img src="${u("/assets/img/exterior.jpg")}" alt="The café's front on Kirkwood Highway: black awning lettered Legal Grounds Café, blue double doors, planters full of flowers, and a mosaic bistro table." width="1010" height="1300" loading="lazy" class="photo">
   <h2>Hours</h2>
-  <ul class="hours" style="list-style:none;padding:0;max-width:260px">${hoursList}</ul>
+  <ul class="hours-list">${hoursList}</ul>
   <p>We close the kitchen and the doors at 3. Holiday hours show up at the top of every page the day before.</p>
   <h2>Getting here</h2>
   <p>We're on Kirkwood Highway (Route 2) in Elsmere, about ten minutes west of downtown Wilmington and a few minutes from I-95. Park free in the lot behind the building and walk around to the blue doors under the awning.</p>
@@ -338,7 +343,7 @@ const visit = () => `
     <li><b>Outside:</b> a patio with heaters for the shoulder seasons, and flowers all summer.</li>
     <li><b>The private room:</b> free for a meeting of up to ${site.conferenceRoomMinutes} minutes, or booked for ${site.privateRoom.min} to ${site.privateRoom.max} people at no fee. <a href="${u("/private-room/")}">Book it here</a>.</li>
   </ul>
-  <img src="${u("/assets/img/patio.jpg")}" alt="The patio under a canopy: a mosaic table, planters of red canna lilies and sweet-potato vine, and the parking lot beyond." width="1010" height="1300" loading="lazy" style="border-radius:6px;max-width:520px;margin:10px 0 26px">
+  <img src="${u("/assets/img/patio.jpg")}" alt="The patio under a canopy: a mosaic table, planters of red canna lilies and sweet-potato vine, and the parking lot beyond." width="1010" height="1300" loading="lazy" class="photo">
   <h2>Bringing kids</h2>
   <p>Kids are welcome. We have high chairs, and a PB&amp;J on sourdough is on the menu for them. Weekend mornings are the calmest time to come with little ones.</p>
   <div class="tw">
@@ -357,12 +362,10 @@ const story = () => `
 <div class="wrap narrow page-body prose">
   <p>Legal Grounds opened in 2017 on the ground floor of 1208 Kirkwood Highway, the building that houses the law offices of <a href="${site.lawFirm.url}" rel="noopener">${esc(site.lawFirm.name)}</a>. The firm opened it for two groups of people: its own employees, who wanted somewhere good to get coffee and lunch without leaving the building, and the neighborhood of Elsmere, which didn't have a café of its own.</p>
   <p>The room was built to feel like the cafés the family loves in Europe. A pressed-copper ceiling, a marble counter, black bistro chairs, framed prints on sage-green walls. It photographs well, but it's better in person at seven in the morning with the light coming in.</p>
-  <img src="${u("/assets/img/artwall.jpg")}" alt="A wall of abstract paintings by a local artist above a butcher-block table with a vase of flowers, under the copper ceiling." width="1010" height="1346" loading="lazy" style="border-radius:6px;max-width:520px;margin:6px 0 26px">
-  <img src="${u("/assets/img/rivalbros.jpg")}" alt="Proudly serving Rival Bros Coffee Roasters, established 2011." width="400" height="500" loading="lazy" style="float:right;max-width:180px;margin:0 0 12px 22px;border-radius:4px">
+  <img src="${u("/assets/img/artwall.jpg")}" alt="A wall of abstract paintings by a local artist above a butcher-block table with a vase of flowers, under the copper ceiling." width="1010" height="1346" loading="lazy" class="photo">
   <p>The coffee comes from <a href="${site.roaster.url}" rel="noopener">${esc(site.roaster.name)}</a>, a small roaster in Philadelphia. The quiche is baked here, and it changes every day. The sandwiches are made when you order them, which is why we ask for a little patience at the lunch rush.</p>
   <p>In 2019 USA Today named us the best coffee shop in Delaware, and the people who come in every morning have kept us on the lists since. Most of them we know by name and by order. We'd like to know yours.</p>
-  <p class="label" style="margin-top:36px">Also from the family</p>
-  <p><a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}.</p>
+  <div class="story-row"><img src="${u("/assets/img/rivalbros.jpg")}" alt="Proudly serving Rival Bros Coffee Roasters, established 2011." width="400" height="500" loading="lazy"><div><p class="label">Also from the family</p><p><a href="${site.sister.url}" rel="noopener">${site.sister.name}</a>, ${site.sister.blurb}.</p></div></div>
 </div>
 `;
 
