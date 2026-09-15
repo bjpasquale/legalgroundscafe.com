@@ -67,3 +67,23 @@
     if (msg) { banner.textContent = msg; banner.hidden = false; }
   }
 })();
+
+/* Scroll reveal: fade elements up as they enter the viewport, staggered within each batch.
+   Mirrors the selector list in site.css; the hidden state only exists under html.js. */
+(function () {
+  var REVEAL = ".section-head, .creds > a, .card, .know li, .two > div, .owner, .panel, .press-card, .review-links li, .menu-section, .seasonal, .story-row, .quote, .tw, .figure-wide, .banner-photo, .narrow.prose .photo";
+  var els = Array.prototype.slice.call(document.querySelectorAll(REVEAL));
+  if (!els.length) return;
+  var reduce = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if (reduce || !("IntersectionObserver" in window)) { els.forEach(function (el) { el.classList.add("in"); }); return; }
+  var io = new IntersectionObserver(function (entries) {
+    var seen = entries.filter(function (e) { return e.isIntersecting; })
+      .sort(function (a, b) { return a.boundingClientRect.top - b.boundingClientRect.top || a.boundingClientRect.left - b.boundingClientRect.left; });
+    seen.forEach(function (e, i) {
+      e.target.style.transitionDelay = Math.min(i, 5) * 90 + "ms";
+      e.target.classList.add("in");
+      io.unobserve(e.target);
+    });
+  }, { rootMargin: "0px 0px -8% 0px", threshold: 0 });
+  els.forEach(function (el) { io.observe(el); });
+})();

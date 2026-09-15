@@ -90,6 +90,7 @@ function layout({ path, title, desc, body, ld, current }) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>document.documentElement.classList.add("js")</script>
 <title>${esc(fullTitle)}</title>
 <meta name="description" content="${esc(desc)}">
 <link rel="canonical" href="${site.url}${path}">
@@ -186,9 +187,9 @@ const home = () => `
   <div class="wrap">
     <div class="section-head"><span class="label">What people come back for</span><h2>Three things to order first.</h2></div>
     <div class="three">
-      <div class="card"><img src="${u("/assets/img/breakfast-sandwich.jpg")}" alt="A bacon, egg and cheese on an everything bagel, cut in half, with sliced strawberries." width="1000" height="1000" loading="lazy"><h3>Breakfast sandwich</h3><p>Egg and cheese on a bagel, croissant or toast, with bacon, sausage or ham if you like. Made when you order it.</p><p class="price">from $6</p></div>
-      <div class="card"><img src="${u("/assets/img/specialty-latte.jpg")}" alt="A pumpkin spice latte with a fern poured in the foam, in front of a tray of small pumpkins." width="1000" height="1000" loading="lazy"><h3>The specialty latte</h3><p>A rotating house latte. The s'mores latte has a following. Ask what's on this week.</p><p class="price">from $4.75</p></div>
-      <div class="card">${ph("Quiche of the day", "r11")}<h3>Quiche of the day</h3><p>Baked in-house, different every day. Ask what's in the case, and get there before lunch.</p><p class="price">$8.50</p></div>
+      <div class="card"><span class="pic"><img src="${u("/assets/img/breakfast-sandwich.jpg")}" alt="A bacon, egg and cheese on an everything bagel, cut in half, with sliced strawberries." width="1000" height="1000" loading="lazy"></span><h3>Breakfast sandwich</h3><p>Egg and cheese on a bagel, croissant or toast, with bacon, sausage or ham if you like. Made when you order it.</p><p class="price">from $6</p></div>
+      <div class="card"><span class="pic"><img src="${u("/assets/img/specialty-latte.jpg")}" alt="A pumpkin spice latte with a fern poured in the foam, in front of a tray of small pumpkins." width="1000" height="1000" loading="lazy"></span><h3>The specialty latte</h3><p>A rotating house latte. The s'mores latte has a following. Ask what's on this week.</p><p class="price">from $4.75</p></div>
+      <div class="card"><span class="pic"><img src="${u("/assets/img/salmon-toast.jpg")}" alt="Salmon avocado toast: smoked salmon, red onion, avocado, tomato and capers over cream cheese on nine-grain bread." width="1000" height="750" loading="lazy"></span><h3>Salmon avocado toast</h3><p>Smoked salmon, avocado, red onion, tomato and capers over cream cheese on nine-grain bread. The lunch that gets photographed.</p><p class="price">$13</p></div>
     </div>
   </div>
 </section>

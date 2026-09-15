@@ -18,5 +18,5 @@ GitHub Pages. See `CLAUDE.md` for how the pieces fit.
 - Updated menu (current data is the March 2025 print).
 
 ## Photos wanted
-Room from the door in the morning · counter and pastry case · salmon avocado toast · a specialty
+Room from the door in the morning · counter and pastry case · a specialty
 latte · quiche of the day · exterior with the sign from Kirkwood Highway · patio.
