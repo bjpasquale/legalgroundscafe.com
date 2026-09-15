@@ -15,16 +15,7 @@
   --open: #3f7a4a;
   --closed: #8f4b3a;
   --focus: #2f5fd0;
-}
-@media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) {
-    --paper: #171a18; --paper-2: #202521; --stone: #262b27; --ink: #eae8e1; --ink-2: #c0c2b8; --muted: #979e97; --line: #333934;
-    --sage: #90ad93; --sage-deep: #a9c2ab; --sage-soft: #25302a; --copper: #d09361; --copper-soft: #3a2d22; --open: #8fc797; --closed: #e09a86; --focus: #8fb0ff;
-  }
-}
-:root[data-theme="dark"] {
-  --paper: #171a18; --paper-2: #202521; --stone: #262b27; --ink: #eae8e1; --ink-2: #c0c2b8; --muted: #979e97; --line: #333934;
-  --sage: #90ad93; --sage-deep: #a9c2ab; --sage-soft: #25302a; --copper: #d09361; --copper-soft: #3a2d22; --open: #8fc797; --closed: #e09a86; --focus: #8fb0ff;
+  color-scheme: light; /* light only; the dark palette was dropped per Ben */
 }
 
 * { box-sizing: border-box; }
@@ -58,8 +49,6 @@ p { margin: 0 0 1em; max-width: 33em; }
 .nav a { text-decoration: none; color: var(--ink-2); font-size: 0.86rem; letter-spacing: 0.12em; text-transform: uppercase; font-weight: 500; padding: 6px 0; border-bottom: 2px solid transparent; }
 .nav a:hover { color: var(--ink); }
 .nav a[aria-current="page"] { color: var(--ink); border-bottom-color: var(--copper); }
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .brand img, :root:not([data-theme="light"]) .foot-brand img { filter: invert(1); } }
-:root[data-theme="dark"] .brand img, :root[data-theme="dark"] .foot-brand img { filter: invert(1); }
 
 /* Open badge */
 .open-badge { display: inline-flex; align-items: center; gap: 8px; font-size: 0.9rem; color: var(--ink-2); white-space: nowrap; }
