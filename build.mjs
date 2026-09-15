@@ -133,7 +133,7 @@ ${body}
       <div>
         <h2 class="foot-h">Find us</h2>
         <p>${esc(addr1)}<br>${esc(addr2)}</p>
-        <p><a href="${site.directionsUrl}" rel="noopener">Directions</a> · free parking in back</p>
+        <p><a href="${site.directionsUrl}" rel="noopener">Directions</a> · free parking</p>
       </div>
       <div>
         <h2 class="foot-h">Hours</h2>
