@@ -188,7 +188,10 @@ button.btn { cursor: pointer; font-family: inherit; }
 /* Photos in prose pages */
 .photo { border-radius: 4px; width: 100%; max-width: 520px; height: auto; margin: 8px 0 26px; }
 .photo-full { max-width: 100%; }
-.figure-wide { display: block; width: calc(100% + 180px); max-width: none; margin: 36px 0 32px -90px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; }
+.figure-wide { display: block; width: 100%; max-width: none; margin: 36px 0 32px; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; }
+/* In the narrow column, text and photos share both edges */
+.narrow.prose p, .narrow .prose p, .narrow.prose ul, .narrow .prose ul { max-width: none; }
+.narrow.prose .photo { max-width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
 .banner-photo { width: 100%; max-width: 100%; aspect-ratio: 21 / 9; object-fit: cover; border-radius: 4px; margin: 0 0 32px; }
 
 /* Page heads */
@@ -265,7 +268,6 @@ button.btn { cursor: pointer; font-family: inherit; }
   .hero { padding: 40px 0 44px; }
   .hero-img img { border-radius: 4px; }
   .hero-text { padding: 0; }
-  .figure-wide { width: 100%; margin-left: 0; }
 }
 @media (max-width: 860px) {
   .hero { padding: 24px 0 36px; }
