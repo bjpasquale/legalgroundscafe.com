@@ -181,7 +181,7 @@ const home = () => `
   </div>
 </section>
 
-<div class="press-line"><div class="wrap creds"><a href="${press.headline.url}" rel="noopener"><span class="serif">“${esc(press.headline.text)}”</span><small>${esc(press.headline.outlet)}, ${press.headline.year}</small></a><a href="${site.social.tripadvisor}" rel="noopener"><span class="serif">#1 of 29 coffee &amp; tea spots in Wilmington</span><small>TripAdvisor travelers, 5.0 rating</small></a></div></div>
+<div class="press-line"><div class="wrap creds"><a href="${press.headline.url}" rel="noopener"><span class="serif">“${esc(press.headline.text)}”</span><small>${esc(press.headline.outlet)}, ${press.headline.year}</small></a><a href="${site.social.tripadvisor}" rel="noopener"><span class="serif">#1 of 29 coffee &amp; tea spots in Wilmington</span><small>TripAdvisor, 5.0 rating</small></a></div></div>
 
 <section class="section">
   <div class="wrap">
