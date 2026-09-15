@@ -170,8 +170,8 @@ const home = () => `
       <h1>Coffee, breakfast and lunch in Elsmere.</h1>
       <p class="lede">A small European-style café on Kirkwood Highway, minutes from downtown Wilmington. Everything made to order, seven days a week.</p>
       <ul class="facts">
-        <li><span class="label">Hours</span><span>${esc(hoursLine)}</span></li>
-        <li><span class="label">Where</span><span><a href="${site.directionsUrl}" rel="noopener">${esc(addr1)}, ${esc(site.address.city)}</a> · free parking in the back</span></li>
+        <li><span class="label">Hours</span><span>${hoursGroups().map((g) => esc(`${g.label} ${g.text}`)).join("<br>")}</span></li>
+        <li><span class="label">Where</span><span><a href="${site.directionsUrl}" rel="noopener">${esc(addr1)}, ${esc(site.address.city)}</a> · free parking</span></li>
         <li><span class="label">Call</span><span><a href="tel:${site.phoneTel}">${esc(site.phone)}</a></span></li>
       </ul>
       <div class="btn-row"><a class="btn primary" href="${u("/menu/")}">See the menu</a><a class="btn" href="${u("/private-room/")}">Book the private room</a></div>
